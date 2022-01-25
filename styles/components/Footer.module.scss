@@ -1,0 +1,26 @@
+@import "../mixins";
+
+.footer {
+  height: 60px;
+  padding: 0 20px;
+  background: rgb(241, 241, 241);
+  border-top: 1px solid #c4c2fc70;
+  display: flex;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  .footerMsg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+
+    .copyright {
+      font-size: 12px;
+      p {
+        color: #8c8c8c;
+      }
+    }
+  }
+}
