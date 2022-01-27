@@ -40,9 +40,6 @@ export default function Home(props) {
                   </div>
                   <div className={styles.newsContent}>
                     <p>{item.attributes.Sub}</p>
-                    <div className={styles.newsCategory}>
-                      <p>{item.attributes.Category}</p>
-                    </div>
                   </div>
                 </div>
               </Link>

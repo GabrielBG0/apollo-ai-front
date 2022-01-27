@@ -1,5 +1,7 @@
-import Header from "../src/components/Header";
 import Head from 'next/head'
+import Header from "../src/components/Header"
+import Footer from "../src/components/Footer"
+import styles from '../styles/pages/About.module.scss'
 export default function About() {
   return (
     <>
@@ -8,8 +10,14 @@ export default function About() {
       </Head>
       <Header />
       <div className="content">
-        About
+        <div className={styles.aboutTitle}>
+          <h1>About Apollo AI</h1>
+        </div>
+        <div className={styles.aboutContent}>
+          <p>Apollo AI is blablbablkjsb\dvjbsçd \bvpdoabspo bvpaobvkbakv a bvapsibvp aivsbp</p>
+        </div>
       </div>
+      <Footer />
     </>
   )
 }

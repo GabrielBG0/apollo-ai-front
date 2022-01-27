@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Header from '../src/components/Header'
-
+import Footer from "../src/components/Footer"
 export default function Progress() {
   return (
     <>
@@ -11,6 +11,7 @@ export default function Progress() {
       <div className="content">
         Progress
       </div>
+      <Footer />
     </>
   )
 }

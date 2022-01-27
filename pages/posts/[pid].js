@@ -4,6 +4,9 @@ import Footer from '../../src/components/Footer'
 import isPositiveInteger from '../../src/lib/isPositiveInteger'
 import api from '../../src/services/api'
 import { useState, useEffect } from 'react'
+import ReactMarkdown from 'react-markdown'
+import styles from '../../styles/pages/posts/Post.module.scss'
+import remarkGfm from 'remark-gfm'
 export default function Post(props) {
   const { error, success, post: initialPost } = props || {};
 
@@ -15,15 +18,19 @@ export default function Post(props) {
   return (
     <>
       <Head>
-        <title>Apollo AI - Music With Machine Learning</title>
-        <meta name="description" content="Apollo AI, writing music with machine learning" />
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{post.attributes.Title} | Apollo AI</title>
       </Head>
       <Header />
       <div className="content">
-        <h1>{post.attributes.Title}</h1>
-        <p>{post.attributes.Body}</p>
+        <div className={styles.postTitle}>
+          <h1>{post.attributes.Title}</h1>
+        </div>
+        <div className={styles.postWriter}>
+          <p>{post.attributes.Writer}</p>
+        </div>
+        <ReactMarkdown className={styles.postContent} remarkPlugins={[remarkGfm]}>
+          {post.attributes.Body}
+        </ReactMarkdown>
       </div>
       <Footer />
     </>
