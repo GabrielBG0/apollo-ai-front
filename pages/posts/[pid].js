@@ -22,7 +22,7 @@ export default function Post(props) {
       </Head>
       <Header />
       <div className="content">
-        <div className={styles.postTitle}>
+        <div className='pageTitle'>
           <h1>{post.attributes.Title}</h1>
         </div>
         <div className={styles.postWriter}>

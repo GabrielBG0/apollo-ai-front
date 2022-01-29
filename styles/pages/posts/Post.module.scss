@@ -1,9 +1,3 @@
-.postTitle {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
 .postWriter {
   width: 100%;
   text-align: right;
@@ -35,6 +29,7 @@
     }
   }
   code {
+    font-family: "Fira Code";
     padding: 2px;
     margin: 0 1px;
     background-color: #eeeeee;

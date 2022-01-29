@@ -21,7 +21,7 @@ export default function Posts(props) {
       </Head>
       <Header />
       <div className="content">
-        <div className={styles.postsTitle}>
+        <div className='pageTitle'>
           <h1>Posts</h1>
         </div>
         <div className={styles.postsGrid}>

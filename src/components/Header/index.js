@@ -20,9 +20,6 @@ export default function Header() {
         <Link href='/about' passHref>
           <a className={styles.headerButton}>About</a>
         </Link>
-        <Link href='/progress' passHref>
-          <a className={styles.headerButton}>Progress</a>
-        </Link>
         <div >
           <a className={styles.headerIcon} href='https://github.com/GabrielBG0' target="_blank" rel="noreferrer">
             <FiGithub />
