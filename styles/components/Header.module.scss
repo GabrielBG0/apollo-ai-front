@@ -8,55 +8,68 @@
   padding: 0 20px;
   background: white;
   border-bottom: 1px solid #c4c2fc70;
-  @include desktop() {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .title {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    .title {
+    justify-content: center;
+    @include desktop() {
+      margin-left: 4rem;
+    }
+    @include phone() {
+      margin-left: 1rem;
+    }
+    .headerTitle {
+      color: black;
+      margin: auto;
+      font-family: "Noto Sans KR", sans-serif;
+      font-weight: 500;
+      @include desktop() {
+        font-size: 32px;
+      }
+      @include phone() {
+        font-size: 18px;
+      }
+      text-align: center;
+    }
+  }
+
+  .headerButtons {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+    font-family: "Noto Sans KR", sans-serif;
+    margin: 0 10px;
+    @include desktop() {
+      font-size: 18px;
+    }
+    @include phone() {
+      font-size: 12px;
+    }
+    padding: 5px;
+    color: black;
+    .headerButton {
+      cursor: pointer;
+      &:hover {
+        color: rgb(62, 150, 250);
+        text-decoration: none;
+      }
+    }
+    .headerIcon {
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-left: 4rem;
-      .headerTitle {
-        color: black;
-        margin: auto;
-        font-family: "Noto Sans KR", sans-serif;
-        font-weight: 500;
-        font-size: 32px;
-        text-align: center;
+      height: 100%;
+      &:hover {
+        color: rgb(62, 150, 250);
+        text-decoration: none;
       }
     }
-
-    .headerButtons {
-      display: flex;
-      align-items: center;
-      justify-content: space-evenly;
-      height: 100%;
-      font-family: "Noto Sans KR", sans-serif;
+    a {
       margin: 0 10px;
-      font-size: 18px;
-      padding: 5px;
-      color: black;
-      .headerButton {
-        cursor: pointer;
-        &:hover {
-          color: rgb(62, 150, 250);
-          text-decoration: none;
-        }
-      }
-      .headerIcon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        &:hover {
-          color: rgb(62, 150, 250);
-          text-decoration: none;
-        }
-      }
-      a {
-        margin: 0 10px;
-      }
     }
   }
 }
