@@ -21,7 +21,7 @@ export default function Header() {
           <a className={styles.headerButton}>About</a>
         </Link>
         <div >
-          <a className={styles.headerIcon} href='https://github.com/GabrielBG0' target="_blank" rel="noreferrer">
+          <a className={styles.headerIcon} href='https://github.com/GabrielBG0/apollo-ai' target="_blank" rel="noreferrer">
             <FiGithub />
           </a>
         </div>
