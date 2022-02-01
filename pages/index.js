@@ -7,12 +7,23 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link';
 import qs from 'qs'
 export default function Home(props) {
-  const { error, success, posts: initialPosts } = props || {};
-  const [posts, setPosts] = useState(initialPosts);
+  const [posts, setPosts] = useState();
+
+  async function getPosts() {
+    const query = qs.stringify({
+      sort: ['id:desc'],
+      pagination: {
+        page: 1,
+        pageSize: 6
+      }
+    })
+    const response = await api.get(`/posts?${query}`);
+    setPosts(response.data);
+  }
 
   useEffect(() => {
-    setPosts(initialPosts);
-  }, [initialPosts]);
+    getPosts();
+  }, [posts]);
 
   return (
     <>
@@ -58,33 +69,4 @@ export default function Home(props) {
       <Footer />
     </>
   )
-}
-
-export async function getServerSideProps(ctx) {
-
-  const query = qs.stringify({
-    sort: ['id:desc'],
-    pagination: {
-      page: 1,
-      pageSize: 6
-    }
-  })
-
-  try {
-    const response = await api.get(`/posts?${query}`);
-    return {
-      props: {
-        success: true,
-        posts: response.data
-      }
-    }
-  } catch (error) {
-    return {
-      props: {
-        success: false,
-        error: error?.message || "fantching posts has faild",
-        posts: null,
-      }
-    }
-  }
 }
