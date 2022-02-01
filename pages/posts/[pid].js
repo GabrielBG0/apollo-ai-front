@@ -12,6 +12,9 @@ export default function Post(props) {
 
   const [post, setPost] = useState(initialPost.data);
 
+  const date = new Date(post.attributes.createdAt);
+
+
   useEffect(() => {
     setPost(initialPost.data);
   }, [initialPost]);
@@ -27,6 +30,12 @@ export default function Post(props) {
         </div>
         <div className={styles.postWriter}>
           <p>{post.attributes.Writer}</p>
+          <p>{date.toLocaleString('en-US', {
+            weekday: 'short',
+            day: 'numeric',
+            year: 'numeric',
+            month: 'long',
+          })}</p>
         </div>
         <ReactMarkdown className={styles.postContent} remarkPlugins={[remarkGfm]}>
           {post.attributes.Body}
