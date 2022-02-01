@@ -25,19 +25,27 @@ export default function Posts(props) {
           <h1>Posts</h1>
         </div>
         <div className={styles.postsGrid}>
-          {posts.data.map(item => (
-            <Link key={item.id} href={`/posts/${item.id}`} passHref>
-              <div className={styles.postItem}>
-                <div className={styles.postTitle}>
-                  <h3>{item.attributes.Title}</h3>
-                  <p>{item.attributes.Writer}</p>
+          {posts.data.map(item => {
+            const date = new Date(item.attributes.createdAt);
+            return (
+              <Link key={item.id} href={`/posts/${item.id}`} passHref>
+                <div className={styles.postItem}>
+                  <div className={styles.postTitle}>
+                    <h3>{item.attributes.Title}</h3>
+                    <p>{item.attributes.Writer}</p>
+                  </div>
+                  <div className={styles.postContent}>
+                    <p>{item.attributes.Sub}</p>
+                    <p>{date.toLocaleString('en-US', {
+                      day: 'numeric',
+                      year: 'numeric',
+                      month: 'long',
+                    })}</p>
+                  </div>
                 </div>
-                <div className={styles.postContent}>
-                  <p>{item.attributes.Sub}</p>
-                </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            )
+          })}
         </div>
       </div>
       <Footer />
